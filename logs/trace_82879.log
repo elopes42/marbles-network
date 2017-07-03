@@ -1,0 +1,20 @@
+2017-07-03T15:00:05.046Z INFO    ModelManager             :info()                    
+    namespace org.hyperledger.composer.system
+
+    abstract asset Asset {  }
+
+    abstract participant Participant {   }
+
+    abstract transaction Transaction identified by transactionId{
+      o String transactionId
+      o DateTime timestamp
+    }
+
+    abstract event Event identified by eventId{
+      o String eventId
+      o DateTime timestamp
+    }
+ {}$
+2017-07-03T15:00:05.091Z INFO    ModelManager             :addModelFile()            addModelFile {"0":"/**\n * Defines a data model for a marble trading network\n */\nnamespace org.hyperledger_composer.marbles\n\nenum MarbleColor {\n  o RED\n  o GREEN\n  o BLUE\n  o PURPLE\n  o ORANGE\n}\n\nenum MarbleSize {\n  o SMALL\n  o MEDIUM\n  o LARGE\n}\n\nasset Marble identified by marbleId {\n  o String marbleId\n  o MarbleSize size\n  o MarbleColor color\n  --> Player owner\n}\n\nparticipant Player identified by email {\n  o String email\n  o String firstName\n  o String lastName\n}\n\ntransaction TradeMarble identified by transactionId {\n  o String transactionId\n  --> Marble marble\n  --> Player newOwner\n}\n"}$
+2017-07-03T15:01:00.707Z INFO    ModelManager             :addModelFile()            addModelFile {"0":"/**\n * Defines a data model for a marble trading network\n */\nnamespace org.hyperledger_composer.marbles\n\nenum MarbleColor {\n  o RED\n  o GREEN\n  o BLUE\n  o PURPLE\n  o ORANGE\n}\n\nenum MarbleSize {\n  o SMALL\n  o MEDIUM\n  o LARGE\n}\n\nasset Marble identified by marbleId {\n  o String marbleId\n  o MarbleSize size\n  o MarbleColor color\n  --> Player owner\n}\n\nparticipant Player identified by email {\n  o String email\n  o String firstName\n  o String lastName\n}\n\ntransaction TradeMarble identified bytransactionId {\n  o String transactionId\n  --> Marble marble\n  --> Player newOwner\n}\n"}$
+2017-07-03T15:01:01.193Z INFO    ModelManager             :addModelFile()            addModelFile {"0":"/**\n * Defines a data model for a marble trading network\n */\nnamespace org.hyperledger_composer.marbles\n\nenum MarbleColor {\n  o RED\n  o GREEN\n  o BLUE\n  o PURPLE\n  o ORANGE\n}\n\nenum MarbleSize {\n  o SMALL\n  o MEDIUM\n  o LARGE\n}\n\nasset Marble identified by marbleId {\n  o String marbleId\n  o MarbleSize size\n  o MarbleColor color\n  --> Player owner\n}\n\nparticipant Player identified by email {\n  o String email\n  o String firstName\n  o String lastName\n}\n\ntransaction TradeMarble identified by transactionId {\n  o String transactionId\n  --> Marble marble\n  --> Player newOwner\n}\n"}$
