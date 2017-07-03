@@ -1,37 +1,62 @@
 /**
  * Defines a data model for a marble trading network
  */
-namespace org.hyperledger_composer.marbles
+namespace com.ibm.assetchain
 
-enum MarbleColor {
-  o RED
-  o GREEN
-  o BLUE
-  o PURPLE
-  o ORANGE
+enum AssetType  {
+  o LENOVO
+  o MAC
+  o IPHONE
+  o IPAD
 }
 
-enum MarbleSize {
-  o SMALL
-  o MEDIUM
-  o LARGE
+enum AccessoryType  {
+  o MOUSE
+  o HD
+  o BATTERY
+  o OTHER
 }
 
-asset Marble identified by marbleId {
-  o String marbleId
-  o MarbleSize size
-  o MarbleColor color
-  --> Player owner
+enum TicketStatus  {
+  o OPEN
+  o ON_HOLD
+  o IN_PROGRESS
+  o CLOSED
 }
 
-participant Player identified by email {
+participant Employee identified by employee_id {
+  o String employee_id
   o String email
-  o String firstName
-  o String lastName
+  o String fullname
 }
 
-transaction TradeMarble identified by transactionId {
-  o String transactionId
-  --> Marble marble
-  --> Player newOwner
+participant Assignee extends Employee {
 }
+
+participant TicketOwner extends Employee {
+}
+
+asset Accessories identified by id {
+   o String id
+   o AccessoryType type
+}
+
+asset IBM_Asset  identified by serialnumber {
+  o String serialnumber 
+  o AssetType type
+  --> Employee[] owner
+  --> Ticket[]  tickets
+}  
+
+asset Ticket identified by ticket_id {
+    o String ticket_id
+    o String description
+    o DateTime date
+    o TicketStatus status
+    --> TicketOwner owner
+    --> Assignee assignee
+    --> Asset asset
+}  
+
+
+
