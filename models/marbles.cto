@@ -55,7 +55,7 @@ asset Ticket identified by ticket_id {
     o TicketStatus status
     --> TicketOwner owner
     --> Assignee assignee
-    --> Asset asset
+    --> IBM_Asset asset
 }  
 
 
